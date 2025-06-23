@@ -1,2 +1,2 @@
-# FF-Smart-Aim-premiun
+# ff
 ajuste automatico de sensibilidad en frefire con ia 
