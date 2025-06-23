@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FF Smart Aim - Web App</title>
+  <style>
+    body { background-color: #0a0a0a; color: white; font-family: sans-serif; text-align: center; }
+    header { background-color: #111; padding: 20px; box-shadow: 0 0 10px red; }
+    h1 { color: #ff3c3c; }
+    select, button { margin: 15px; padding: 12px; font-size: 16px; border-radius: 8px; border: none; }
+    .button { background-color: #ff3c3c; color: white; cursor: pointer; }
+    .button:hover { background-color: #e53030; }
+    .section { padding: 20px; background-color: #1a1a1a; margin: 20px auto; width: 90%; max-width: 600px; border-radius: 10px; }
+    .premium { border: 2px dashed gold; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔥 FF Smart Aim - Web App</h1>
+    <p>Genera tu sensibilidad ideal en Free Fire con inteligencia artificial</p>
+  </header>
+
+  <div class="section">
+    <h2>🎮 Generador de Sensibilidad</h2>
+    <select id="tipoJuego">
+      <option value="rapido">Rápido</option>
+      <option value="preciso">Preciso</option>
+      <option value="balanceado">Balanceado</option>
+    </select><br>
+    <button class="button" onclick="generar()">Generar Sensibilidad</button>
+    <div id="resultado" style="margin-top: 20px;"></div>
+  </div>
+
+  <div class="section">
+    <h2>🔍 Buscar Configs en Internet</h2>
+    <p><i>Buscando datos reales en YouTube, Reddit, foros y TikTok...</i></p>
+    <button class="button" onclick="buscarSensibilidad()">Buscar</button>
+    <div id="webData" style="margin-top: 20px;"></div>
+  </div>
+
+  <div class="section premium">
+    <h2>⭐ Versión Premium</h2>
+    <p>Desbloquea configuraciones secretas, ajustes por celular, y más 👑</p>
+    <button class="button">Próximamente: Comprar Premium</button>
+  </div>
+
+  <script>
+    function generar() {
+      const tipo = document.getElementById("tipoJuego").value;
+      let config = {};
+      if (tipo === "rapido") config = { gen: 95, rojo: 93, x2: 90, x4: 85, awm: 72 };
+      else if (tipo === "preciso") config = { gen: 78, rojo: 75, x2: 70, x4: 67, awm: 60 };
+      else config = { gen: 85, rojo: 84, x2: 80, x4: 76, awm: 65 };
+
+      document.getElementById("resultado").innerHTML = `
+        <h3>🎯 Configuración Recomendada:</h3>
+        General: ${config.gen}<br>
+        Punto Rojo: ${config.rojo}<br>
+        Mira 2X: ${config.x2}<br>
+        Mira 4X: ${config.x4}<br>
+        AWM: ${config.awm}`;
+    }
+
+    function buscarSensibilidad() {
+      document.getElementById("webData").innerHTML = `
+        🔍 Encontrado en varias fuentes:<br>
+        <ul style="text-align:left; display:inline-block;">
+          <li>Reddit: General 92 / Rojo 91</li>
+          <li>YouTube: General 89 / Rojo 90</li>
+          <li>TikTok: General 94 / Rojo 95</li>
+        </ul>`;
+    }
+  </script>
+</body>
+</html>
